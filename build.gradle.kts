@@ -39,6 +39,7 @@ dependencies {
 	// 追加
 	implementation("org.seasar.doma.boot:doma-spring-boot-starter:1.8.0") // DOMA 追加
 	implementation("org.seasar.doma:doma-processor:2.50.0") // DOMA 追加
+	implementation("org.springframework.boot:spring-boot-devtools") // h2 console : http://localhost:8080/h2-console
 }
 
 tasks.withType<KotlinCompile> {
