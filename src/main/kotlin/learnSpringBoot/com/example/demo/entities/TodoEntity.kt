@@ -5,7 +5,7 @@ import org.seasar.doma.GeneratedValue
 import org.seasar.doma.GenerationType
 import org.seasar.doma.Id
 
-@Entity
+@Entity(immutable = true) // TODO:kotlinの時は絶対このimmutableをかく
 data class TodoEntity(
     // DBの形と対
     @Id // unique idだよの定義、indexになる。
