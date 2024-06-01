@@ -1,4 +1,4 @@
-package entities
+package learnSpringBoot.com.example.demo.entities
 
 import org.seasar.doma.Entity
 import org.seasar.doma.GeneratedValue
