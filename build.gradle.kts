@@ -35,6 +35,10 @@ dependencies {
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+	// 追加
+	implementation("org.seasar.doma.boot:doma-spring-boot-starter:1.8.0") // DOMA 追加
+	implementation("org.seasar.doma:doma-processor:2.50.0") // DOMA 追加
 }
 
 tasks.withType<KotlinCompile> {
