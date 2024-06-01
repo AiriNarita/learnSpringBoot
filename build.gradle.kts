@@ -3,8 +3,13 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
 	id("org.springframework.boot") version "3.3.0"
 	id("io.spring.dependency-management") version "1.1.5"
+
 	kotlin("jvm") version "1.9.24"
 	kotlin("plugin.spring") version "1.9.24"
+
+	// doma利用のためのプラグイン
+	id("org.domaframework.doma.compile") version "2.0.0"
+	kotlin("kapt") version "1.9.22"
 }
 
 group = "learnSpringBoot.com.example"
@@ -29,17 +34,16 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
+	implementation("org.seasar.doma.boot:doma-spring-boot-starter:1.7.0")
+	implementation("org.seasar.doma:doma-kotlin:2.56.0")
+	kapt("org.seasar.doma:doma-processor:2.56.0") //TODO: kaptはJavaとKotlinのannotation連携？
+	implementation("org.springframework.boot:spring-boot-devtools") // h2 console
 	compileOnly("org.projectlombok:lombok")
 	runtimeOnly("com.h2database:h2")
 	runtimeOnly("com.mysql:mysql-connector-j")
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-
-	// 追加
-	implementation("org.seasar.doma.boot:doma-spring-boot-starter:1.8.0") // DOMA 追加
-	implementation("org.seasar.doma:doma-processor:2.50.0") // DOMA 追加
-	implementation("org.springframework.boot:spring-boot-devtools") // h2 console : http://localhost:8080/h2-console
 }
 
 tasks.withType<KotlinCompile> {
