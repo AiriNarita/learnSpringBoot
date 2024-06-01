@@ -20,4 +20,7 @@ public interface TodoDao {
     fun findById(id: Long): TodoEntity?
     @Delete
     fun deleteByEntity(todoEntity: TodoEntity): Result<TodoEntity>
+
+    @Update(sqlFile = true)
+    fun updateStatus(id: Long, completed: Boolean): Int
 }

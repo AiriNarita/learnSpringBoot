@@ -27,4 +27,10 @@ class TodoService(
         val foundTodo = findById(id)
         return todoDao.deleteByEntity(foundTodo)
     }
+
+    fun updateStatus(id: Long):Int{
+        val foundTodo = findById(id)
+        val changedStatus = !(foundTodo.completed)!!
+        return todoDao.updateStatus(id, changedStatus)
+    }
 }

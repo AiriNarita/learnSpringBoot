@@ -32,4 +32,13 @@ class TodoController(
         val result = todoService.deleteById(id)
         return result.entity
     }
+
+    @PutMapping("/update/{id}") //TODO:updateはput
+    fun updateStatus(
+        @PathVariable("id") id: Long
+    ): Int{
+        val result = todoService.updateStatus(id)
+        if(result == null) throw Exception("Failed to insert")
+        return result
+    }
 }
